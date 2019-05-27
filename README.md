@@ -4,6 +4,12 @@ A WordPress Plugin to add the Cyberimpact Newsletter Optins Option in your WooCo
 ## Description
 By installing this plugin, the option checkbox will be authomatically added to the WooCommerce Checkout, You'll have to setup the plugin by going in the Cyberimpact setting tab in the left menu and entering an API Token and your distribution list ID.
 
+## Localization
+This plugin is available in these language:
+* English
+* French
+* French (Canada)
+
 ## Installation
 Install from WordPress plugins directory.
 
