@@ -1,6 +1,6 @@
 <?php
 /**
- * SWooCommerce CyberImpact Hook Settings
+ * WooCommerce CyberImpact Hook Settings
  *
  * @package woocih
  * @version 0.1
@@ -39,6 +39,56 @@ function register_woocih_settings() {
 // Create Setting Page
 function woocih_settings_page() {
 ?>
+<style>
+	.woocih-tabs hr {
+		margin: 2em 0 3em;
+	}
+	.woocih-tabs th {
+		position: relative;
+	}
+	.woocih__abouticon {
+		width: 16px;
+		display: inline-block;
+		position: absolute;
+		right: 15px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.woocih__abouttooltip {
+		visibility: hidden;
+		width: 135%;
+		background-color: #555;
+		color: #fff;
+		text-align: center;
+		padding: 10px 12px;
+		border-radius: 6px;
+		position: absolute;
+		z-index: 1;
+		bottom: -70%;
+		left: 0;
+		opacity: 0;
+		-webkit-transition: opacity .3s;
+		transition: opacity .3s;
+		font-size: 12px;
+	}
+	.woocih__abouttooltip a {
+		color: #25b7d3;
+	}
+	.woocih__abouttooltip:after {
+		content: "";
+		position: absolute;
+		bottom: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: transparent transparent #555 transparent;
+	}
+	.woocih__about:hover .woocih__abouttooltip {
+	    visibility: visible;
+	    opacity: 1;
+	}
+</style>
 <div class="wrap">
 	<h1><?php _e('WooCommerce Cyberimpact Hook Settings', 'woocih'); ?></h1>
 
@@ -56,10 +106,10 @@ function woocih_settings_page() {
 			    <?php settings_fields( 'woocih-settings-group' ); ?>
 			    <?php do_settings_sections( 'woocih-settings-group' ); ?>
 			    <h3><?php _e('API Settings', 'woocih'); ?></h3>
-			    <p><?php _e('Supporting optin API only.', 'woocih'); ?></p>
+			    <p><?php _e('Supporting optin API only. This field is mandatory.', 'woocih'); ?></p>
 			    <table class="form-table">
 			        <tr valign="top">
-			        	<th scope="row"><?php _e('Cyberimpact API Token', 'woocih'); ?></th>
+			        	<th scope="row" class="woocih__about"><?php _e('Cyberimpact API Token', 'woocih'); ?> <img class="woocih__abouticon" src="<?php echo $GLOBALS['woocihName']; ?>/includes/assets/img/question.svg" /><span class="woocih__abouttooltip"><?php _e('Refer to <a target="_blank" rel="noopener noreferrer" href="http://faq.cyberimpact.com/articles/21/api?l=en_ca">Cyberimpact official documentation</a> to learn how to get your API Token.', 'woocih'); ?></span></th>
 						<td><input type="text" name="woocih_api_key" value="<?php echo esc_attr( get_option('woocih_api_key') ); ?>" /></td>
 			        </tr>
 			    </table>
@@ -80,10 +130,9 @@ function woocih_settings_page() {
 			</form>
 		</div>
 		<div class="tab tab2" style="display: none;">
-			<p><b>This plugin is not developed by or affiliated with Cyberimpact. It’s a plugin that has been built to fill a need that I had.</b></p>
-			<p>The plugin currently support only one french and one mailing list. The hook connect to the optin API only. Please lookup the /includes/hook.php file if you need any other functionalities.</p>
-			<p>For more info, lookout my personal website <a href="https://marcandre.ca/woocih">here</a>.</p>
-			<p>Cheers!</p>
+			<p><b><?php _e('This plugin is not developed by or affiliated with Cyberimpact. It’s a plugin that has been built to fill a need that I had.', 'woocih'); ?></b></p>
+			<p><?php _e('The plugin currently support only one french and one english mailing list. The hook connect to the optin API only. Please lookup the /includes/hook.php file if you need any other functionalities.', 'woocih'); ?></p>
+			<p><?php _e('For more info, lookout my personal website <a href="https://marcandre.ca/woocih" target="_blank" rel="noopener noreferrer">here</a>.', 'woocih'); ?></p>
 		</div>
 	</div>
 </div>

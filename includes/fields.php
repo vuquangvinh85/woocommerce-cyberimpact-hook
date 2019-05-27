@@ -11,22 +11,28 @@
 		exit; // Exit if accessed directly
 	}
 	
+	
 	/**
-	* Add Custom Fields to Billing Form
+	* Add Custom Fields to WooCommerce Billing Form
 	*/
 	add_filter( 'woocommerce_checkout_fields' , 'woocih_override_checkout_fields' );
 	function woocih_override_checkout_fields( $fields ) {
+		
+		// Cyberimpact API Token
+		$woocihToken = get_option( 'woocih_api_key' );
 				
 		// Create Newsletter Checkbox
-		$fields['billing']['woocih_newsletter'] = array(
-			'type'		=> 'checkbox',
-			'label'     => __('I want to subscribe to the newsletter', 'woocih'),
-			'required'  => false,
-			'class'     => array('form-row-other'),
-			'options' 	=> array(
-				'Oui' 	=> __('Yes', 'woocih'),
-			)
-		);
+		if ($woocihToken != '') {
+			$fields['billing']['woocih_newsletter'] = array(
+				'type'		=> 'checkbox',
+				'label'     => __('I want to subscribe to the newsletter', 'woocih'),
+				'required'  => false,
+				'class'     => array('form-row-other'),
+				'options' 	=> array(
+					'Oui' 	=> __('Yes', 'woocih'),
+				)
+			);
+		}
 		
 		// Create woocih_language Field
 		$fields['billing']['woocih_language'] = array(
@@ -102,7 +108,7 @@
 	add_filter( 'manage_users_columns', 'woocih_add_user_columns' );
 	function woocih_add_user_columns($column) {
 	    $column['woocih_newsletter'] = __('Newsletter Sub.', 'woocih');
-	    $column['woocih_language'] = 'Lang.';
+	    $column['woocih_language'] = __('Lang.', 'woocih');
 
 	    return $column;
 	}

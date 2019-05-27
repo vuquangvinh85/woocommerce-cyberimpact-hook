@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-05-27 11:35-0400\n"
+"PO-Revision-Date: 2019-05-27 11:35-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_CA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: ../includes\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: fields.php:28
+msgid "I want to subscribe to the newsletter"
+msgstr "Je souhaite m’abonner à l’infolettre"
+
+#: fields.php:32
+msgid "Yes"
+msgstr "Oui"
+
+#: fields.php:68
+msgid "Email Preferences"
+msgstr "Préférences de messagerie"
+
+#: fields.php:72
+msgid "Newsletter Subscription"
+msgstr "Abonnement à l’infolettre"
+
+#: fields.php:81
+msgid "Language Preference"
+msgstr "Préférence linguistique"
+
+#: fields.php:110
+msgid "Newsletter Sub."
+msgstr "Abonnement à l’infolettre"
+
+#: fields.php:111
+msgid "Lang."
+msgstr "Lang."
+
+#: settings.php:93
+msgid "WooCommerce Cyberimpact Hook Settings"
+msgstr "Paramètre de WooCommerce Cyberimpact Hook"
+
+#: settings.php:97
+msgid "Settings"
+msgstr "Paramètres"
+
+#: settings.php:100
+msgid "About"
+msgstr "À propos"
+
+#: settings.php:108
+msgid "API Settings"
+msgstr "Paramètres de l'API"
+
+#: settings.php:109
+msgid "Supporting optin API only. This field is mandatory."
+msgstr "Prise en charge de l’API optin uniquement. Ce champ est obligatoire."
+
+#: settings.php:112
+msgid "Cyberimpact API Token"
+msgstr "Jeton d’API Cyberimpact"
+
+#: settings.php:112
+msgid ""
+"Refer to <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"http://faq."
+"cyberimpact.com/articles/21/api?l=en_ca\">Cyberimpact official "
+"documentation</a> to learn how to get your API Token."
+msgstr ""
+"Référez-vous à la <a target=\"_blank\" rel=\"noopener noreferrer\" href="
+"\"http://faq.cyberimpact.com/articles/21/api?l=fr_ca\">documentation "
+"officielle de Cyberimpact</a> pour connaitre comment obtenir votre jeton "
+"d’API."
+
+#: settings.php:117
+msgid "Mailing List Settings"
+msgstr "Paramètre de la liste de distribution"
+
+#: settings.php:118
+msgid "Enter your mailing list ID. Leave empty to disable the list."
+msgstr ""
+"Entrez votre ID de liste de distribution. Laisser vide pour désactiver la "
+"liste."
+
+#: settings.php:121
+msgid "Mailing List ID (French)"
+msgstr "ID de la liste (Français)"
+
+#: settings.php:125
+msgid "Mailing List ID (English)"
+msgstr "ID de la liste (Anglais)"
+
+#: settings.php:133
+msgid ""
+"This plugin is not developed by or affiliated with Cyberimpact. It’s a "
+"plugin that has been built to fill a need that I had."
+msgstr ""
+"Ce plugin n’est pas développé par ou affilié à Cyberimpact. C’est un plugin "
+"qui a été construit pour combler un besoin que j’avais."
+
+#: settings.php:134
+msgid ""
+"The plugin currently support only one french and one english mailing list. "
+"The hook connect to the optin API only. Please lookup the /includes/hook.php "
+"file if you need any other functionalities."
+msgstr ""
+"Le plugin ne supporte actuellement qu’une seule liste française et anglaise. "
+"Le hook se connecte uniquement à l’API optin. Veuillez vous référer au "
+"fichier /includes/hook.php si vous avez besoin d’autres fonctionnalités."
+
+#: settings.php:135
+msgid ""
+"For more info, lookout my personal website <a href=\"https://marcandre.ca/"
+"woocih\" target=\"_blank\" rel=\"noopener noreferrer\">here</a>."
+msgstr ""
+"Pour plus d’informations, veuillez consulter mon site personel <a href="
+"\"https://marcandre.ca/woocih\"  target=\"_blank\" rel=\"noopener noreferrer"
+"\">ici</a>."
