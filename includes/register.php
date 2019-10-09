@@ -38,14 +38,14 @@ function woocih_front_assets() {
 		'site_url'      => home_url(),
 		'template_url'  => get_template_directory_uri(),
 		'site_title'    => get_bloginfo( 'name' ),
-	    'pluginsUrl' 	=> $GLOBALS['pluginName'],
+	    	'pluginsUrl' 	=> $GLOBALS['woocihName'],
 	);
 	
 	// Front-end Style
-    wp_register_style( 'woocih-front-style', $GLOBALS['woocihName'] . '/includes/assets/css/front.css', array(), $GLOBALS['woocihVersion'], true);
-    wp_enqueue_style( 'woocih-front-style' );
+    	wp_register_style( 'woocih-front-style', $GLOBALS['woocihName'] . '/includes/assets/css/front.css', array(), $GLOBALS['woocihVersion'], true);
+    	wp_enqueue_style( 'woocih-front-style' );
     
-    // Front-end Script
-    wp_enqueue_script('woocih-front-script', $GLOBALS['woocihName'] . '/includes/assets/js/front.js', array( 'jquery' ), $GLOBALS['woocihVersion'], true );
+    	// Front-end Script
+    	wp_enqueue_script('woocih-front-script', $GLOBALS['woocihName'] . '/includes/assets/js/front.js', array( 'jquery' ), $GLOBALS['woocihVersion'], true );
 	wp_localize_script('woocih-front-script', 'woocihFront', $vars);
 }
