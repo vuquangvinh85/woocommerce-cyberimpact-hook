@@ -4,7 +4,7 @@
 	 * WooCommerce CyberImpact Hook Custom Fields
 	 *
 	 * @package woocih
-	 * @version 1.0
+	 * @version 1.1
 	 */
 	
 	if ( ! defined( 'ABSPATH' ) ) {
@@ -20,13 +20,21 @@
 		
 		// Cyberimpact API Token
 		$woocihToken = get_option( 'woocih_api_key' );
-				
+		
+		// Display Settings
+		$woocihMandatory = get_option( 'woocih_mandatory' );
+		$woocihCheckbox = get_option( 'woocih_checkbox_label' );
+		
+		if($woocihCheckbox == '' ) {
+			$woocihCheckbox = __('I want to subscribe to the newsletter', 'woocih');
+		}
+		
 		// Create Newsletter Checkbox
 		if ($woocihToken != '') {
 			$fields['billing']['woocih_newsletter'] = array(
 				'type'		=> 'checkbox',
-				'label'     => __('I want to subscribe to the newsletter', 'woocih'),
-				'required'  => false,
+				'label'     => $woocihCheckbox,
+				'required'  => $woocihMandatory,
 				'class'     => array('form-row-other'),
 				'options' 	=> array(
 					'Oui' 	=> __('Yes', 'woocih'),
@@ -65,26 +73,26 @@
 	add_action( 'show_user_profile', 'woocih_user_profile_fields' );
 	add_action( 'edit_user_profile', 'woocih_user_profile_fields' );
 	function woocih_user_profile_fields( $user ) { ?>
-	    <h3><?php _e('Email Preferences', 'woocih'); ?></h3>
-	    <table class="form-table">
-		    <tr>
-		        <th>
-			        <label for="woocih_newsletter"><?php _e('Newsletter Subscription', 'woocih'); ?></label>
-			    </th>
-		        <td>
-			        <?php $news1 = esc_attr( get_the_author_meta( 'woocih_newsletter', $user->ID ) ); ?>
-		            <input type="checkbox" name="woocih_newsletter" id="woocih_newsletter" value="<?php echo $news1 ?>" <?php if( $news1 == 1) { echo 'checked'; } ?> /><br />
-		        </td>
-		    </tr>
-		    <tr>
-		        <th>
-			        <label for="woocih_language"><?php _e('Language Preference', 'woocih'); ?></label>
-			    </th>
-		        <td>
-		           <input type="text" name="woocih_language" id="woocih_language" value="<?php echo esc_attr( get_the_author_meta( 'woocih_language', $user->ID ) ); ?>" /><br />
-		        </td>
-		    </tr>
-	    </table>
+		<h3><?php _e('Email Preferences', 'woocih'); ?></h3>
+		<table class="form-table">
+			<tr>
+		        	<th>
+					<label for="woocih_newsletter"><?php _e('Newsletter Subscription', 'woocih'); ?></label>
+				</th>
+		        	<td>
+			        	<?php $news1 = esc_attr( get_the_author_meta( 'woocih_newsletter', $user->ID ) ); ?>
+		        		<input type="checkbox" name="woocih_newsletter" id="woocih_newsletter" value="<?php echo $news1 ?>" <?php if( $news1 == 1) { echo 'checked'; } ?> /><br />
+		    		</td>
+		    	</tr>
+		    	<tr>
+		        	<th>
+			        	<label for="woocih_language"><?php _e('Language Preference', 'woocih'); ?></label>
+			    	</th>
+		        	<td>
+		        		<input type="text" name="woocih_language" id="woocih_language" value="<?php echo esc_attr( get_the_author_meta( 'woocih_language', $user->ID ) ); ?>" /><br />
+		        	</td>
+		    	</tr>
+		</table>
 	<?php }
 		
 		
@@ -123,20 +131,19 @@
 
 	    switch ($column_name) {
 	        case 'woocih_newsletter' :
-	        		if ($user->woocih_newsletter == 1){
-					return "✓";
-				}
-	            break;
+	        	if ($user->woocih_newsletter == 1){
+				return "✓";
+			}
+	        break;
 	        case 'woocih_language' :
-	        		if ($user->woocih_language == "fr_ca"){
-					return "FR";
-				} else if ($user->woocih_language == "en_ca"){
-					return "EN";
-				}
-	            break;
+	        	if ($user->woocih_language == "fr_ca"){
+				return "FR";
+			} else if ($user->woocih_language == "en_ca"){
+				return "EN";
+			}
+	        break;
 	        default:
 	    }
 	    return;
 	}
-	
 ?>
