@@ -3,7 +3,7 @@
 * Plugin Name: WooCommerce Cyberimpact Hook
 * Plugin URI: https://marcandre.ca/woocih
 * Description: Add the Cyberimpact Newsletter Optins Option in your WooCommerce Checkout.
-* Version: 1.0
+* Version: 1.1
 * Author: Marc-André Lavigne
 * Author URI: https://marcandre.ca
 * Text Domain: woocih
@@ -13,7 +13,7 @@
 
 // Plugin Version
 global $woocihVersion;
-$woocihVersion = '1.0';
+$woocihVersion = '1.1';
 
 // Plugin Directory Path
 global $woocihName;
