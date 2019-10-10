@@ -3,7 +3,7 @@
  * WooCommerce CyberImpact Hook Settings
  *
  * @package woocih
- * @version 0.1
+ * @version 1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,8 +29,10 @@ function register_woocih_settings() {
 	
 	// Tab #1
 	register_setting( 'woocih-settings-group', 'woocih_api_key' );
+	register_setting( 'woocih-settings-group', 'woocih_mandatory' );
 	register_setting( 'woocih-settings-group', 'woocih_french_id' );
 	register_setting( 'woocih-settings-group', 'woocih_english_id' );
+	register_setting( 'woocih-settings-group', 'woocih_checkbox_label' );
 	
 	// Tab #2
 }
@@ -64,7 +66,7 @@ function woocih_settings_page() {
 		border-radius: 6px;
 		position: absolute;
 		z-index: 1;
-		bottom: -70%;
+		bottom: -90%;
 		left: 0;
 		opacity: 0;
 		-webkit-transition: opacity .3s;
@@ -111,6 +113,18 @@ function woocih_settings_page() {
 			        <tr valign="top">
 			        	<th scope="row" class="woocih__about"><?php _e('Cyberimpact API Token', 'woocih'); ?> <img class="woocih__abouticon" src="<?php echo $GLOBALS['woocihName']; ?>/includes/assets/img/question.svg" /><span class="woocih__abouttooltip"><?php _e('Refer to <a target="_blank" rel="noopener noreferrer" href="http://faq.cyberimpact.com/articles/21/api?l=en_ca">Cyberimpact official documentation</a> to learn how to get your API Token.', 'woocih'); ?></span></th>
 						<td><input type="text" name="woocih_api_key" value="<?php echo esc_attr( get_option('woocih_api_key') ); ?>" /></td>
+			        </tr>
+			    </table>
+			    <hr />
+			    <h3><?php _e('Display Settings', 'woocih'); ?></h3>
+			    <table class="form-table">
+			        <tr valign="top">
+			        	<th scope="row" class="woocih__about"><?php _e('Make Subscription Mandatory', 'woocih'); ?> <img class="woocih__abouticon" src="<?php echo $GLOBALS['woocihName']; ?>/includes/assets/img/question.svg" /><span class="woocih__abouttooltip"><?php _e('Might not be legal to make the newsletter subscription mandatory. You might want to validate your local laws before making the field mandatory.', 'woocih'); ?></span></th>
+						<td><input type="checkbox" name="woocih_mandatory"  value="1" <?php echo checked( 1, get_option('woocih_mandatory'), false ); ?> /></td>
+			        </tr>
+			        <tr valign="top">
+			        	<th scope="row"><?php _e('Checkbox Label Text', 'woocih'); ?></th>
+						<td><input type="text" name="woocih_checkbox_label" value="<?php echo esc_attr( get_option('woocih_checkbox_label') ); ?>" /></td>
 			        </tr>
 			    </table>
 			    <hr />
