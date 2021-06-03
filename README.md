@@ -23,3 +23,7 @@ Else, to install manually:
 
 ** 1.0 **
 * Version 1.
+
+** 1.1 **
+* Fixed bug where Header for json declaration is overwritten by Header for API key.
+* Transfer more fields such as Postal Code and Custom Fields declared on CyberImpact side.
