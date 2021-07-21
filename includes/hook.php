@@ -58,12 +58,21 @@
             else if ($customer_orders[0]->_order_total == '600.00') {$typeOfMembership = "Organization";}
             else if ($customer_orders[0]->_order_total == '15.00') {$typeOfMembership = "Student/Senior";}
             
+            //Extract date of membership purchase
+            $dateOfMembership = $customer_orders[0]->post_date;
+            $dateOfMembershipFormatted = new DateTime($dateOfMembership);
+            //Calculate expiration date
+            $exdate = new DateTime($dateOfMembership);
+            $exdate->modify('+365 days');
+            
             //address (including $address, $city, $province) and type of membership are declared as custom fields in Cyber Impact. Their corresponding field index (used as keys here) can be seen in Cyber Impact => settings => custom field tab => Get placeholder => Custom field tab. The number in [] is their field index.
             $customFields = array(
                 '6'     => $address,
                 '7'     => $city,
                 '8'     => $province,
-                '11'    => $typeOfMembership
+                '11'    => $typeOfMembership,
+                '12'    => $exdate->format('Y-m-d'),
+                '13'    => $dateOfMembershipFormatted->format('Y-m-d'),
             );
 			
 			// Lookup the list we shoold had the user
@@ -92,8 +101,10 @@
 			    
 			    //For experiments: print meta fields of user and post to "Memo" Field in CyberImpact
 			    //'note'      => var_export(get_user_meta($user_info->id),true),
+			    //'note'      => var_export($customer_orders,true),
 			    //'note'      => var_export(get_post_meta($customer_orders[0]->ID),true),
 			    //'note'      => var_export($customer_orders[0]->_order_total,true),
+			    //'note'      => var_export($exdate->format('Y-m-d'),true),
 			);
             
             //Encode $jsonData
