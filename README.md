@@ -27,3 +27,6 @@ Else, to install manually:
 ** 1.1 **
 * Fixed bug where Header for json declaration is overwritten by Header for API key.
 * Transfer more fields such as Postal Code and Custom Fields declared on CyberImpact side.
+
+** 1.2 **
+* Transfer Custom Fields: "Expiry date" and "Membership Signup Date" declared on CyberImpact side.
